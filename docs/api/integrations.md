@@ -2,7 +2,7 @@
 
 Integrators have the ability to create system integrations to allow bridging our two ecosystems together.
 
-Integrations are like applications, they can be installed by tenants on a per-site basis, thus providing integrator access to its [core resources](/api/core/introduction.html) (see [integration installations](/api/installations.html)).
+Integrations are like applications, they can be installed by tenants on a per-site basis, thus providing integrators access to customer' site [core resources](/api/core/introduction.html) (see [integration installations](/api/installations.html)).
 
 Integrators can also share data to tenants via [mirror resources](/api/core/introduction.html) (such as [sow mirrors](/api/mirror/sow-mirrors.html)).
 

@@ -80,7 +80,7 @@ Authorization: Bearer <token>
 ```
 
 ::: danger Treat tokens with care
-Never store tokens, it will __expire after one day__ anyway.
+Never store a token, it will __expire after one day__ anyway.
 :::
 
 ## Errors
@@ -97,13 +97,13 @@ Web API uses conventional HTTP response codes to indicate request success of fai
 | 200 | OK | Request is successful. Everything worked as expected. |
 | 201 | Created | Resource is successfully created. |
 | 202 | Accepted | Operation is accepted but will be processed in background. |
-| 204 | No Content | Everything worked as expected but nothing to respond |
+| 204 | No Content | Everything worked as expected but nothing to respond. |
 | 400 | Bad Request | Unacceptable request, mandatory conditions were not met. |
 | 401 | Unauthorized | Invalid credentials, session token is expired, etc. |
 | 403 | Forbidden | Resource is not accessible due to authorization failure. |
 | 404 | Not Found | Resource cannot be found. |
 | 422 | Unprocessable Entity | Operation on resource failed, often due to a validation error. |
-| 429 | Too Many Request | Raised when you have been rate-limited by our API protections due to flood detection. Please __wait 2 hours__ or [contact us](mailto:noc@jygatechcom?subject=Rate&nbsp;Limit&nbsp;Issue) if situation still occur.
+| 429 | Too Many Request | Raised when you have been rate-limited by our API protections due to flood detection. Please __wait 2 hours__ or [contact us](mailto:noc@jygatech.com?subject=Rate&nbsp;Limited&nbsp;) if situation still occur.
 | 5xx | Server Errors | Errors on Gestal Cloud side (will be automatically reported to us). |
 
 ## Pagination
