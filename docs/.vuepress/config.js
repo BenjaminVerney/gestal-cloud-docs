@@ -22,7 +22,7 @@ module.exports = {
         },
         {
           title: 'Core Resources',
-          collapsable: false,
+          collapsable: true,
           children: [
             'core/introduction',
             'core/sows',
@@ -31,7 +31,7 @@ module.exports = {
         },
         {
           title: 'Mirror Resources',
-          collapsable: false,
+          collapsable: true,
           children: [
             'mirror/introduction',
             'mirror/sow-mirrors'
