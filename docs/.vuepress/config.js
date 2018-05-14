@@ -1,5 +1,5 @@
 module.exports = {
-  title: 'Gestal Cloud',
+  title: 'Gestal Cloud API',
   description: 'Learn how to build an integration, send data for synchronization or interact with farm sites using our Web API.',
   dest: 'dist',
   themeConfig: {
