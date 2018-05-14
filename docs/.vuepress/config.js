@@ -4,6 +4,8 @@ module.exports = {
   dest: 'dist',
   themeConfig: {
     logo: '/logo.svg',
+    docsDir: 'docs',
+    lastUpdated: 'Last Updated',
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Web API', link: '/api/getting-started.html' }
@@ -22,7 +24,7 @@ module.exports = {
         },
         {
           title: 'Core Resources',
-          collapsable: true,
+          collapsable: false,
           children: [
             'core/introduction',
             'core/sows',
@@ -31,7 +33,7 @@ module.exports = {
         },
         {
           title: 'Mirror Resources',
-          collapsable: true,
+          collapsable: false,
           children: [
             'mirror/introduction',
             'mirror/sow-mirrors'
