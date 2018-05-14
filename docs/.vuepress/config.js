@@ -24,6 +24,7 @@ module.exports = {
           title: 'Core Resources',
           collapsable: false,
           children: [
+            'core/introduction',
             'core/sows',
             'core/feed-intakes'
           ]
@@ -32,6 +33,7 @@ module.exports = {
           title: 'Mirror Resources',
           collapsable: false,
           children: [
+            'mirror/introduction',
             'mirror/sow-mirrors'
           ]
         }

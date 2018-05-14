@@ -14,7 +14,7 @@ Web API use standard HTTP features such as HTTP authentication and verbs widely 
 [Cross origin resource sharing](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) and [Content Security Policy](https://en.wikipedia.org/wiki/Content_Security_Policy) are supported out-of-the-box too.
 
 :::tip No integrator account?
-  Please send us an [email](mailto:dev@jygatech.com?subject=Integrator&nbsp;Account) so we can help you setup an account.
+  Please send us an [__email__](mailto:dev@jygatech.com?subject=Integrator&nbsp;Account) so we can help you setup an account.
 :::
 
 ## Endpoint
@@ -43,7 +43,7 @@ application/vnd.gestal+json
 
 There are two way of authenticating with Web API:
 
-* As an __integrator__ account (covered by this section).
+* As an __integrator__ account (covered by __this__ section).
 * As an __integration installation__ (covered by its [own section](/api/installations.html#authenticate-as-installation.html)).
 
 
