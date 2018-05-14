@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/jyga/gestal-cloud-docs/master/.github/logo.svg" alt=""/>
+  <img src="https://s3.ca-central-1.amazonaws.com/gestal/logo/cloud-alt.svg" alt=""/>
 </p>
 
 <hr>
