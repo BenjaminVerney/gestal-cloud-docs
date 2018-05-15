@@ -17,6 +17,15 @@ Web API use standard HTTP features such as HTTP authentication and verbs widely 
   Please send us an [__email__](mailto:dev@jygatech.com?subject=Integrator&nbsp;Account) so we can help you setup an account.
 :::
 
+## Terminology
+
+This documentation has recurring terms you'll encounter:
+
+__Integrator__ (basically you).
+
+__Tenant__ is an organization (a company, a group, etc...) owned by a customer.
+
+
 ## Endpoint
 
 Web API endpoint is globally available at:
@@ -52,7 +61,7 @@ There are two way of authenticating with Web API:
 Authenticate as an integrator by providing your _email_ and _password_ as basic auth values:
 
 ```
-$ http -va email:password post https://api.gestal.cloud/auth
+$ http -jva email:password POST https://api.gestal.cloud/auth
 ```
 
 _Examples in this documentation will make use of [__HTTPie__](https://httpie.org/) but clients such as __curl__, [__Postman__](https://www.getpostman.com/) or [__Insomnia__](https://insomnia.rest/) are great too!_
@@ -75,7 +84,12 @@ _Session tokens are simply [__JWT__](https://jwt.io/) tokens._
 Session token __must__ be provided for every request made as an integrator:
 
 ```
+$ http -jv GET https://api.gestal.cloud/ping 'Authorization: Bearer <token>'
+```
+
+```
 GET /ping HTTP/1.1
+Content-Type: application/json
 Authorization: Bearer <token>
 ```
 
@@ -115,6 +129,21 @@ We don't return every existing records by default for the sake of performance.
 Resources are splitted into page cursors via `page` parameter and limited to a bulk size using a `per_page` parameter.
 
 A collection of pagination metadata will be provided in association with data.
+
+### Metadata
+
+| Metadata | Type | Description |
+| :-- | -- | :-- |
+| `total` | _number_ | Complete number of objects available in datastore. |
+| `pages` | _number_ | Number of pages with applied `per_page` limit. |
+| `per_page` | _number_ | Limit the number of objects returned by a `page`. |
+| `current_age` | _number_ | The current active page (default to first). |
+| `next_page` | _number_ | The next page number (false if none). |
+| `previous_page` | _number_ | The previous page number (false if none). |
+| `first_page` | _boolean_ | If current page is last page (or not). |
+| `last_page` | _boolean_ | If current page is last page (or not). |
+| `out_of_range` | _boolean_ | If current page is out of range (does not exists within current parameters). |
+
 
 ### Example request
 
@@ -157,3 +186,4 @@ application/vnd.gestal.<version>+json
 
 With `<version>` the Web API version you want to use.
 
+If no version is provided it'll use the latest API version by default.
