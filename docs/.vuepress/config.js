@@ -15,7 +15,6 @@ module.exports = {
   themeConfig: {
     logo: '/logo.svg',
     docsDir: 'docs',
-    repo: 'jyga',
     lastUpdated: 'Last Updated',
     nav: [
       { text: 'Home', link: '/' },

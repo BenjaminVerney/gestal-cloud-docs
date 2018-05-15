@@ -12,6 +12,7 @@
 | `rfid2` | _number_ | The second RFID tag. |
 | `state` | _string_ | The current sow state, can be `gilt`, `open`, `cycled`, `bred`, `gestating`, `farrowing`, `farrowed`, `weaned` or `retired`. |
 | `state_updated_at` | _datetime_ | Date and time at which the sow state changed for the last time. |
+| `last_location` | _string_ | Last known location for the sow. |
 | `created_at` | _datetime_ | Date and time at which the object was created. |
 | `updated_at` | _datetime_ | Date and time at which the object was updated. |
 
