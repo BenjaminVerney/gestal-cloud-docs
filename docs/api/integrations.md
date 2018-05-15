@@ -239,8 +239,8 @@ GET https://api.gestal.cloud/integrations
 
 | Parameter | Required? | Description |
 | :-- | :-- | :-- |
-| `:page` | no | The page number you want to retrieve (default to first page). |
-| `:per_page` | no | How many integrations you want per page (act as a limit, default: _100_). |
+| `page` | no | The page number you want to retrieve (default to first page). |
+| `per_page` | no | How many integrations you want per page (act as a limit, default: _100_). |
 
 ### Attributes
 
