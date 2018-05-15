@@ -4,7 +4,7 @@
 
 <hr>
 
-# Gestal Cloud API Documentations
+# Gestal Cloud API Docs
 
 ## Requirements
 
