@@ -95,5 +95,65 @@ Unlike your integrator account, there is __no session tokens__ for installations
 Access keys grants you access to complete tenant site data. Please obfuscate or hide them from unwanted eyes.
 :::
 
+## The current installation object
+
+| Attribute | Type | Description |
+| :-- | -- | :-- |
+| `cloud_id` | _string_ | Unique identifier for the object. |
+| `name` | _string_ | The integration name. |
+| `url` | _string_ | The integration url. |
+| `type` | _string_ | Type of integration (default to third_party). |
+| `signed` | _boolean_ | If this integration is signed or not (default to false). |
+| `description` | _string_ | The integration description |
+| `access_key`| _object_ | The current [access key](/api/access-keys.html#the-access-key-object) object. |
+| `site` | _object_ | The site where this installation is activated. |
+
 ## Retrieve current installation
 
+Retrieves details of the integration installation you're authenticated with.
+
+### Endpoint
+
+```
+GET https://api.gestal.cloud/integration
+```
+
+### Parameters
+
+_None_
+
+### Attributes
+
+_None_
+
+### Example Request
+
+```
+$ http -jv -a <accesskey>: GET https://api.gestal.cloud/integration
+```
+
+### Example Response
+
+Returns a current installation object if request succeeded. Returns [an error](/api/getting-started.html#errors) if something goes wrong.
+
+```
+200 OK
+```
+
+```json
+{
+  "cloud_id": "inst_JbB8eEQnk4qy5vp2LN6BzTjpIAR4BJwD",
+  "name": "Acme Plus",
+  "url": "https://acme.com/products/acme-plus",
+  "type": "third_party",
+  "signed": false,
+  "description": "Integrate Gestal Cloud with Acme Plus notification service.",
+  "access_key": {
+    "last_active_at": "2001-01-01T01:01:01.000Z"
+  },
+  "site": {
+    "cloud_id": "sit_VbRdHhAiizrPScy3TjNH28Ijfvqd6xGc",
+    "name": "Site 1"
+  }
+}
+```

@@ -137,12 +137,12 @@ A collection of pagination metadata will be provided in association with data.
 | `total` | _number_ | Complete number of objects available in datastore. |
 | `pages` | _number_ | Number of pages with applied `per_page` limit. |
 | `per_page` | _number_ | Limit the number of objects returned by a `page`. |
-| `current_age` | _number_ | The current active page (default to first). |
-| `next_page` | _number_ | The next page number (false if none). |
-| `previous_page` | _number_ | The previous page number (false if none). |
-| `first_page` | _boolean_ | If current page is last page (or not). |
-| `last_page` | _boolean_ | If current page is last page (or not). |
-| `out_of_range` | _boolean_ | If current page is out of range (does not exists within current parameters). |
+| `current_age` | _number_ | The current active `page` (default to first). |
+| `next_page` | _number_ | The next `page` number (false if none). |
+| `previous_page` | _number_ | The previous `page` number (false if none). |
+| `first_page` | _boolean_ | If current `page` is last `page` (or not). |
+| `last_page` | _boolean_ | If current `page` is last `page` (or not). |
+| `out_of_range` | _boolean_ | If current `page` is out of range (does not exists within current parameters). |
 
 
 ### Example request
