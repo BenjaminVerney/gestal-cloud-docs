@@ -61,7 +61,7 @@ There are two way of authenticating with Web API:
 Authenticate as an integrator by providing your _email_ and _password_ as basic auth values:
 
 ```
-$ http -jva email:password POST https://api.gestal.cloud/auth
+$ http -jv -a email:password POST https://api.gestal.cloud/auth
 ```
 
 _Examples in this documentation will make use of [__HTTPie__](https://httpie.org/) but clients such as __curl__, [__Postman__](https://www.getpostman.com/) or [__Insomnia__](https://insomnia.rest/) are great too!_
