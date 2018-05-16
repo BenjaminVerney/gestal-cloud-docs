@@ -187,3 +187,28 @@ application/vnd.gestal.<version>+json
 With `<version>` the Web API version you want to use.
 
 If no version is provided it'll use the latest API version by default.
+
+## Ping
+
+We've exposed a simple API call that acts like a ping so you verify that Web API is reachable before doing operations on it.
+You can also verify if the [access key](/api/access-keys.html) you provide is valid by providing usual basic auth values.
+
+### Endpoint
+
+```
+GET https://api.gestal.cloud/ping
+```
+
+### Example Request
+
+```
+$ http -jv GET https://api.gestal.cloud/ping
+```
+
+### Example Response
+
+Returns a no content status code if successful. Returns [an error](/api/getting-started.html#errors) if something goes wrong.
+
+```
+204 No Content
+```
