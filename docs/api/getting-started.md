@@ -21,7 +21,7 @@ Web API use standard HTTP features such as HTTP authentication and verbs widely 
 
 This documentation has recurring terms you'll encounter:
 
-__Integrator__ (basically you).
+__Integrator__ (you or your company).
 
 __Tenant__ is an organization (a company, a group, etc...) owned by a customer.
 
