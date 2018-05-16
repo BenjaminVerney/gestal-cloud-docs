@@ -1,5 +1,7 @@
 # Sows
 
+Sows resources represent data around sow identity or state and are essentially the central nodes for most resources.
+
 ## The sow object
 
 | Attribute | Type | Description |
@@ -9,7 +11,7 @@
 | `pin_tag` | _string_ | The visual ID of a sow. |
 | `rfid1` | _number_ | The first RFID tag. |
 | `rfid2` | _number_ | The second RFID tag. |
-| `state` | _string_ | The current sow state, can be `gilt`, `open`, `cycled`, `bred`, `gestating`, `farrowing`, `farrowed`, `weaned` or `retired`. |
+| `state` | _string_ | The current sow state, can be: <br/><br/> `gilt`, `open`, `cycled`, `bred`, `gestating`, `farrowing`, `farrowed`, <br/><br/>`weaned` or `retired`. |
 | `state_updated_at` | _datetime_ | Date and time at which the sow state changed for the last time. |
 | `last_location` | _string_ | Last known location for the sow. |
 | `created_at` | _datetime_ | Date and time at which the object was created. |
@@ -98,7 +100,7 @@ $ http -jv GET https://api.gestal.cloud/integration/sows page==1 per_page==10
 
 ### Example Response
 
-Returns a dictionnary with `data` property that contains an array of up to `per_page` sows limit and some [pagination](/api/getting-started.html#pagination) metadata.
+Returns a dictionary with `data` property that contains an array of up to `per_page` sows limit and some [pagination](/api/getting-started.html#pagination) metadata.
 Returns [an error](/api/getting-started.html#errors) if something goes wrong.
 
 ```
@@ -173,7 +175,7 @@ $ http -jv GET https://api.gestal.cloud/integration/sows/sow_hUdntuB2PEPwg03VZqM
 
 ### Example Response
 
-Returns a dictionnary with `data` property that contains an array of up to `per_page` sow versions limit and some [pagination](/api/getting-started.html#pagination) metadata.
+Returns a dictionary with `data` property that contains an array of up to `per_page` sow versions limit and some [pagination](/api/getting-started.html#pagination) metadata.
 Returns [an error](/api/getting-started.html#errors) if something goes wrong.
 
 ```

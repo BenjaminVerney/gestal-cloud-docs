@@ -181,7 +181,7 @@ $ http -jv GET https://api.gestal.cloud/integrations/installations/inst_JbB8eEQn
 
 ### Example Response
 
-Returns a dictionnary with `data` property that contains an array of up to `per_page` access keys limit and some [pagination](/api/getting-started.html#pagination) metadata.
+Returns a dictionary with `data` property that contains an array of up to `per_page` access keys limit and some [pagination](/api/getting-started.html#pagination) metadata.
 Returns [an error](/api/getting-started.html#errors) if something goes wrong.
 
 ```
