@@ -4,7 +4,7 @@ title: Getting Started
 
 # Getting Started
 
-Designed around [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) principles,
+Designed around [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) and [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) principles,
 our Web API is a collection of resource-oriented URIs.
 
 Each method has a series of arguments informing the execution of your intentions.
@@ -21,9 +21,9 @@ Web API use standard HTTP features such as HTTP authentication and verbs widely 
 
 This documentation has recurring terms you'll encounter:
 
-__Integrator__ (you or your company).
+An __Integrator__ is you or your company as a software vendor or provider.
 
-__Tenant__ is an organization (a company, a group, etc...) owned by a customer.
+A __Tenant__ is an organization (a company, a group, etc...) owned by a customer.
 
 
 ## Endpoint
@@ -54,7 +54,6 @@ There are two way of authenticating with Web API:
 
 * As an __integrator__ account (covered by __this__ section).
 * As an __integration installation__ (covered by its [own section](/api/installations.html#authenticate-as-installation.html)).
-
 
 ### Example Request
 
@@ -93,7 +92,7 @@ Content-Type: application/json
 Authorization: Bearer <token>
 ```
 
-::: danger Treat tokens with care
+:::danger Treat tokens with care
 Never store a token, it will __expire after one day__ anyway.
 :::
 
@@ -144,7 +143,6 @@ A collection of pagination metadata will be provided in association with data.
 | `last_page` | _boolean_ | If current `page` is last `page` (or not). |
 | `out_of_range` | _boolean_ | If current `page` is out of range (does not exists within current parameters). |
 
-
 ### Example request
 
 ```
@@ -176,9 +174,9 @@ You need to iterate over all pages to retrieve complete dataset.
 
 As Web API evolve, some backwards-incompatible changes may occur.
 
-Versioning is handled through specific media-types format.
+Versioning is handled through specific media-types formats.
 
-To set the API version on a specific request, send a media-type like:
+To set the API version on a specific request, just send a media-type like:
 
 ```
 application/vnd.gestal.<version>+json
@@ -186,11 +184,11 @@ application/vnd.gestal.<version>+json
 
 With `<version>` the Web API version you want to use.
 
-If no version is provided it'll use the latest API version by default.
+If no version is provided it'll use the __latest API version by default__.
 
 ## Ping
 
-We've exposed a simple API call that acts like a ping so you verify that Web API is reachable before doing operations on it.
+We've exposed a simple API endpoint that acts like a "ping" so you verify if Web API is reachable before doing operations.
 You can also verify if the [access key](/api/access-keys.html) you provide is valid by providing usual basic auth values.
 
 ### Endpoint

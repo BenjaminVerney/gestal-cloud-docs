@@ -2,7 +2,7 @@
 
 Integration installations are activations of your integration by tenants on their sites.<br/>
 An integration installation is _scoped_ to a site, in a multi-sites setup you'll need one installation per-site.<br/>
-It grants you access to site [core resources](/api/core/introduction.html) data and allows you to share some data through [mirror resources](api/mirror/introduction.html).
+It grants you access to site [core resources](/api/core/introduction.html) and allows you to share some data through [mirror resources](api/mirror/introduction.html).
 
 ## List all installations
 
@@ -79,7 +79,7 @@ Returns [an error](/api/getting-started.html#errors) if something goes wrong.
 
 Authentication as integration installation use an [access key](/api/access-keys.html) to authenticate if you don't have one please [create an access key](/api/access-keys.html#create-an-access-key) into an integration installation first.
 
-Authenticate as an integrator by providing your _access-key_ as basic auth username value (leave password value empty) :
+Authenticate as an integrator by providing your _access-key_ as basic auth username value (leave password value empty).
 
 ### Example Request
 
@@ -92,7 +92,7 @@ Unlike your integrator account, there is __no session tokens__ for installations
 :::
 
 ::: danger Treat access keys with care
-Access keys grants you access to complete tenant site data. Please obfuscate or hide them from unwanted eyes.
+Access keys grants you access to __complete__ tenant site data. Please obfuscate or hide them from unwanted eyes.
 :::
 
 ## The current installation object
@@ -110,7 +110,7 @@ Access keys grants you access to complete tenant site data. Please obfuscate or 
 
 ## Retrieve current installation
 
-Retrieves details of the integration installation you're authenticated with.
+Retrieves details of the integration installation you're currently authenticated with.
 
 ### Endpoint
 

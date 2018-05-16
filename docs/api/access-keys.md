@@ -8,7 +8,7 @@ It is the __only__ way to access [core resources](/api/core/introduction.html) a
 :::
 
 :::danger Treat access keys with care
-Like a password, an access key does not expire. Please obfuscate or hide it from unwanted eyes.
+Like a password, an access key will never expire. Please obfuscate or hide it from unwanted eyes.
 :::
 
 ## The access key object
@@ -98,7 +98,7 @@ $ http -jv GET https://api.gestal.cloud/integrations/accesskeys/25201008-8c5a-4a
 
 ### Example Response
 
-Returns an integration object if request succeeded. Returns [an error](/api/getting-started.html#errors) if something goes wrong.
+Returns an access key object if request succeeded. Returns [an error](/api/getting-started.html#errors) if something goes wrong.
 
 ```
 200 OK

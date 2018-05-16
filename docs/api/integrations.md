@@ -1,6 +1,6 @@
 # Integrations
 
-Integrators have the ability to create system integrations to allow bridging two ecosystems together.
+You have the ability to create system integrations to allow bridging our two ecosystems together.
 
 Integrations are like applications, they can be installed by tenants on a per-site basis, thus providing integrators access to its [core resources](/api/core/introduction.html) (see [integration installations](/api/installations.html)).
 

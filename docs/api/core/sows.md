@@ -7,7 +7,7 @@ Sows resources represent data around sow identity or state and are essentially t
 | Attribute | Type | Description |
 | :-- | -- | :-- |
 | `cloud_id` | _string_ | Unique identifier for the object. |
-| `gestal_id` | _number_ | The Gestal system unique ID. |
+| `gestal_id` | _number_ | The Gestal system unique ID for a sow. |
 | `pin_tag` | _string_ | The visual ID of a sow. |
 | `rfid1` | _number_ | The first RFID tag. |
 | `rfid2` | _number_ | The second RFID tag. |
@@ -86,7 +86,6 @@ GET https://api.gestal.cloud/integration/sows
 | :-- | :-- | :-- |
 | `page` | no | The page number you want to retrieve (default to first page). |
 | `per_page` | no | How many sows you want per page (act as a limit, default: _100_). |
-
 
 ### Attributes
 

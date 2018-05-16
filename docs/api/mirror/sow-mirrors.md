@@ -1,11 +1,13 @@
 # Sow Mirrors
 
+Sow mirrors are the equivalent of [sows](/api/core/sows.html#the-sow-object) resources but controlled exclusively by you.
+
 ## The sow mirror object
 
 | Attribute | Type | Description |
 | :-- | -- | :-- |
 | `cloud_id` | _string_ | Unique identifier for the object. |
-| `vendor_id` | _uuid_ | Unique vendor identifier for the object. |
+| `vendor_id` | _uuid_ | Unique vendor identifier for the object (yours). |
 | `gestal_id` | _string_ | The [sow](/api/core/sows.html#the-sow-object) unique ID (optional). |
 | `pin_tag` | _string_ | The visual ID of a sow. |
 | `rfid1` | _number_ | The first RFID tag. |
@@ -110,7 +112,7 @@ $ http -jv GET https://api.gestal.cloud/integration/mirrors/sows/wos_nbocYxWfQeX
 
 ### Example Response
 
-Returns a sow object if request succeeded. Returns [an error](/api/getting-started.html#errors) if something goes wrong.
+Returns a sow mirror object if request succeeded. Returns [an error](/api/getting-started.html#errors) if something goes wrong.
 
 ```
 200 OK
@@ -170,7 +172,7 @@ $ http -jv GET https://api.gestal.cloud/integration/mirrors/sows/70b096b7-047b-4
 
 ### Example Response
 
-Returns a dictionary with `data` property that contains an array of up to `per_page` sow versions limit and some [pagination](/api/getting-started.html#pagination) metadata.
+Returns a dictionary with `data` property that contains an array of up to `per_page` sow mirrors limit and some [pagination](/api/getting-started.html#pagination) metadata.
 Returns [an error](/api/getting-started.html#errors) if something goes wrong.
 
 ```
@@ -313,6 +315,73 @@ Returns only a status code if deletion succeeded. Returns [an error](/api/gettin
 204 No Content
 ```
 
+## List all sow mirrors
+
+Returns a list of sow mirrors, The sows mirrors are returned sorted by update date, with the most recent sow mirror updated appearing first.
+
+### Endpoint
+
+```
+GET https://api.gestal.cloud/integration/mirrors/sows
+```
+
+### Parameters
+
+| Parameter | Required? | Description |
+| :-- | :-- | :-- |
+| `page` | no | The page number you want to retrieve (default to first page). |
+| `per_page` | no | How many sow mirrors you want per page (act as a limit, default: _100_). |
+
+### Attributes
+
+_None_
+
+### Example Request
+
+```
+$ http -jv GET https://api.gestal.cloud/integration/mirrors/sows page==1 per_page==10
+```
+
+### Example Response
+
+Returns a dictionary with `data` property that contains an array of up to `per_page` sow mirrors limit and some [pagination](/api/getting-started.html#pagination) metadata.
+Returns [an error](/api/getting-started.html#errors) if something goes wrong.
+
+```
+200 OK
+```
+
+```json
+{
+  "data": [
+    {
+      "cloud_id": "wos_nbocYxWfQeXdI27iD6JeRLl1yKPrYNKF",
+      "vendor_id": "70b096b7-047b-41ab-b36c-261f608ea701",
+      "gestal_id": 7847698,
+      "pin_tag": "1234",
+      "rfid1": 4564678,
+      "rfid2": 1234567,
+      "state": "farrowing",
+      "state_updated_at": "2001-01-01T01:01:01.000Z",
+      "last_location": "far101",
+      "created_at": "2001-01-01T01:01:01.000Z",
+      "updated_at": "2001-01-01T01:01:01.000Z"
+    }
+  ],
+  "meta": {
+    "total": 1,
+    "pages": 1,
+    "per_page": 10,
+    "current_page": 1,
+    "next_page": false,
+    "previous_page": false,
+    "first_page": true,
+    "last_page": true,
+    "out_of_range": false
+  }
+}
+```
+
 ## The batch update object
 
 | Attribute | Type | Description |
@@ -328,8 +397,8 @@ Returns only a status code if deletion succeeded. Returns [an error](/api/gettin
 
 ## Bulk insert sow mirrors
 
-Creating or updating a large batch of resources is often necessary when doing a first time synchronization.
-This endpoint is designed to handle any size of sow mirror creation or update payloads.
+Creating or updating a large batch of resources is often necessary when doing large of first time synchronizations.
+This endpoint is designed to handle any size of sow mirror creation or update jobs.
 
 ### Endpoint
 
@@ -477,72 +546,5 @@ Returns a batch update object if deletion succeeded. Returns [an error](/api/get
   "created_at": "2001-01-01T01:01:01.000Z",
   "completed_at": null,
   "cancelled_at": "2001-01-01T01:01:01.000Z"
-}
-```
-
-## List all sow mirrors
-
-Returns a list of sow mirrors, The sows mirrors are returned sorted by update date, with the most recent sow mirror updated appearing first.
-
-### Endpoint
-
-```
-GET https://api.gestal.cloud/integration/mirrors/sows
-```
-
-### Parameters
-
-| Parameter | Required? | Description |
-| :-- | :-- | :-- |
-| `page` | no | The page number you want to retrieve (default to first page). |
-| `per_page` | no | How many sow mirrors you want per page (act as a limit, default: _100_). |
-
-### Attributes
-
-_None_
-
-### Example Request
-
-```
-$ http -jv GET https://api.gestal.cloud/integration/mirrors/sows page==1 per_page==10
-```
-
-### Example Response
-
-Returns a dictionary with `data` property that contains an array of up to `per_page` sow mirrors limit and some [pagination](/api/getting-started.html#pagination) metadata.
-Returns [an error](/api/getting-started.html#errors) if something goes wrong.
-
-```
-200 OK
-```
-
-```json
-{
-  "data": [
-    {
-      "cloud_id": "wos_nbocYxWfQeXdI27iD6JeRLl1yKPrYNKF",
-      "vendor_id": "70b096b7-047b-41ab-b36c-261f608ea701",
-      "gestal_id": 7847698,
-      "pin_tag": "1234",
-      "rfid1": 4564678,
-      "rfid2": 1234567,
-      "state": "farrowing",
-      "state_updated_at": "2001-01-01T01:01:01.000Z",
-      "last_location": "far101",
-      "created_at": "2001-01-01T01:01:01.000Z",
-      "updated_at": "2001-01-01T01:01:01.000Z"
-    }
-  ],
-  "meta": {
-    "total": 1,
-    "pages": 1,
-    "per_page": 10,
-    "current_page": 1,
-    "next_page": false,
-    "previous_page": false,
-    "first_page": true,
-    "last_page": true,
-    "out_of_range": false
-  }
 }
 ```
