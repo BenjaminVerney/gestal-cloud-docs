@@ -56,7 +56,7 @@ _None_
 | :-- | :-- | :-- |
 | `name` | __yes__ | A string representing the name of your integration as it will be displayed to tenants. Mostly your product name. |
 | `url` | __yes__ | An URL to your product website. |
-| `description` | no | A short description of your integration. It is displayed to tenants and explains your integration to them. <br/> For example: _Monitors your Gestal system data and notifies you using Acme Plus awesome real-time notifications_.
+| `description` | no | A short description of your integration. It is displayed to tenants and explains your integration to them. <br/> For example: _Monitors your Gestal system data and notifies you using Acme Plus awesome real-time notifications_. |
 
 ### Example Request
 

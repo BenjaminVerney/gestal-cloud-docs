@@ -147,7 +147,7 @@ Returns [an error](/api/getting-started.html#errors) if something goes wrong.
 
 ## List all sow versions
 
-Returns a list of sow verions, The sows verions are returned sorted by creation date, with the most recent version appearing first.
+Returns a list of sow versions, The sows versions are returned sorted by creation date, with the most recent version appearing first.
 
 ### Endpoint
 
@@ -161,7 +161,7 @@ GET https://api.gestal.cloud/integration/sows/:sow_id/versions
 | :-- | :-- | :-- |
 | `:sow_id` | __yes__ | The sow Cloud _or_ Gestal ID you want to retrieve the versions of. |
 | `page` | no | The page number you want to retrieve (default to first page). |
-| `per_page` | no | How many sows you want per page (act as a limit, default: _50_). |
+| `per_page` | no | How many sow versions you want per page (act as a limit, default: _50_). |
 
 ### Attributes
 
