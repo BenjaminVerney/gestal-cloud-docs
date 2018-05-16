@@ -16,6 +16,8 @@ module.exports = {
     logo: '/logo.svg',
     docsDir: 'docs',
     lastUpdated: 'Last Updated',
+    repo: 'jyga',
+
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Web API', link: '/api/getting-started.html' }

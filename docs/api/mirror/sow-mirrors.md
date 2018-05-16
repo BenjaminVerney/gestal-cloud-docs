@@ -70,7 +70,7 @@ A common source of error is not providing the `vendor_id` attribute.
 {
   "cloud_id": "wos_nbocYxWfQeXdI27iD6JeRLl1yKPrYNKF",
   "vendor_id": "70b096b7-047b-41ab-b36c-261f608ea701",
-  "gestal_id": "null",
+  "gestal_id": null,
   "pin_tag": "1234",
   "rfid1": null,
   "rfid2": null,
@@ -120,7 +120,7 @@ Returns a sow object if request succeeded. Returns [an error](/api/getting-start
 {
   "cloud_id": "wos_nbocYxWfQeXdI27iD6JeRLl1yKPrYNKF",
   "vendor_id": "70b096b7-047b-41ab-b36c-261f608ea701",
-  "gestal_id": "null",
+  "gestal_id": null,
   "pin_tag": "1234",
   "rfid1": null,
   "rfid2": null,
@@ -267,10 +267,10 @@ Returns an updated sow mirror object if update succeeded. Returns [an error](/ap
 {
   "cloud_id": "wos_nbocYxWfQeXdI27iD6JeRLl1yKPrYNKF",
   "vendor_id": "70b096b7-047b-41ab-b36c-261f608ea701",
-  "gestal_id": "null",
+  "gestal_id": null,
   "pin_tag": "1234",
   "rfid1": null,
-  "rfid2": "1234567",
+  "rfid2": 1234567,
   "state": "gilt",
   "state_updated_at": null,
   "last_location": null,
@@ -313,7 +313,236 @@ Returns only a status code if deletion succeeded. Returns [an error](/api/gettin
 204 No Content
 ```
 
+## The batch update object
+
+| Attribute | Type | Description |
+| :-- | -- | :-- |
+| `cloud_id` | _string_ | Unique identifier for the object. |
+| `update_type` | _string_ | The type of batch update (here `sow_mirrors`). |
+| `total`| _number_ | The total number of resources to process in this batch. |
+| `failures` | _number_ | How many batch jobs failed. |
+| `pending` | _number_ | How many batch jobs are pending. |
+| `created_at` | _datetime_ | Date and time at which the batch update was created. |
+| `completed_at` | _datetime_ | Date and time at which the batch update was completed. |
+| `canceled_at` | _datetime_ | Date and time at which the batch update was canceled. |
+
 ## Bulk insert sow mirrors
+
+Creating or updating a large batch of resources is often necessary when doing a first time synchronization.
+This endpoint is designed to handle any size of sow mirror creation or update payloads.
+
+### Endpoint
+
+```
+POST https://api.gestal.cloud/integration/mirrors/sows/bulk
+```
+
+### Parameters
+
+_None_
+
+### Attributes
+
+An array of [sow mirrors](/api/mirror/sow-mirrors.html#the-sow-mirror-object).
+
+### Example Request
+
+```
+$ http -jv POST https://api.gestal.cloud/integration/mirrors/sows/bulk < sow_mirrors.json
+```
+
+#### sow_mirrors.json
+
+```json
+[
+  {
+    "vendor_id": "70b096b7-047b-41ab-b36c-261f608ea701",
+    "pin_tag": "1234",
+    "rfid1": 12345678,
+    "rfid2": 87654321
+  }
+]
+```
+
+### Example Response
+
+```
+202 Accepted
+```
+
+```json
+{
+  "cloud_id": "bu_aYD83ogODTtHsiNjclTFAVOdiq4Y47K5",
+  "update_type": "sow_mirrors",
+  "state": "active",
+  "total": 1,
+  "failures": 0,
+  "pending": 1,
+  "created_at": "2001-01-01T01:01:01.000Z",
+  "completed_at": null,
+  "cancelled_at": null
+}
+```
+
+## Retrieve a batch update
+
+Retrieves details of a previously created batch update.
+
+### Endpoint
+
+```
+GET https://api.gestal.cloud/integration/mirrors/sows/bulk/:batch_update_id
+```
+
+### Parameters
+
+| Parameter | Required? | Description |
+| :-- | :-- | :-- |
+| `:batch_update_id` | __yes__ | The batch update Cloud ID you want to retrieve. |
+
+### Attributes
+
+_None_
+
+### Example Request
+
+```
+$ http -jv GET https://api.gestal.cloud/integration/mirrors/sows/bulk/bu_aYD83ogODTtHsiNjclTFAVOdiq4Y47K5
+```
+
+### Example Response
+
+Returns a batch update object if request succeeded. Returns [an error](/api/getting-started.html#errors) if something goes wrong.
+
+```
+200 OK
+```
+
+```json
+{
+  "cloud_id": "bu_aYD83ogODTtHsiNjclTFAVOdiq4Y47K5",
+  "update_type": "sow_mirrors",
+  "state": "completed",
+  "total": 1,
+  "failures": 0,
+  "pending": 0,
+  "created_at": "2001-01-01T01:01:01.000Z",
+  "completed_at": "2001-01-01T01:01:01.000Z",
+  "cancelled_at": null
+}
+```
+
+## Cancel a batch update
+
+Cancels a batch update. Won't rollback already processed batch jobs.
+
+### Endpoint
+
+```
+DELETE https://api.gestal.cloud/integration/mirrors/sows/bulk/:batch_update_id
+```
+
+### Parameters
+
+| Parameter | Required? | Description |
+| :-- | :-- | :-- |
+| `:batch_update_id` | __yes__ | The batch update Cloud ID you want to cancel. |
+
+### Attributes
+
+_None_
+
+### Example Request
+
+```
+$ http -jv DELETE https://api.gestal.cloud/integration/mirrors/sows/bulk/bu_aYD83ogODTtHsiNjclTFAVOdiq4Y47K5
+```
+
+### Example Response
+
+Returns a batch update object if deletion succeeded. Returns [an error](/api/getting-started.html#errors) if something goes wrong.
+
+```
+200 OK
+```
+
+```json
+{
+  "cloud_id": "bu_aYD83ogODTtHsiNjclTFAVOdiq4Y47K5",
+  "update_type": "sow_mirrors",
+  "state": "cancelled",
+  "total": 1,
+  "failures": 0,
+  "pending": 0,
+  "created_at": "2001-01-01T01:01:01.000Z",
+  "completed_at": null,
+  "cancelled_at": "2001-01-01T01:01:01.000Z"
+}
+```
 
 ## List all sow mirrors
 
+Returns a list of sow mirrors, The sows mirrors are returned sorted by update date, with the most recent sow mirror updated appearing first.
+
+### Endpoint
+
+```
+GET https://api.gestal.cloud/integration/mirrors/sows
+```
+
+### Parameters
+
+| Parameter | Required? | Description |
+| :-- | :-- | :-- |
+| `page` | no | The page number you want to retrieve (default to first page). |
+| `per_page` | no | How many sow mirrors you want per page (act as a limit, default: _100_). |
+
+### Attributes
+
+_None_
+
+### Example Request
+
+```
+$ http -jv GET https://api.gestal.cloud/integration/mirrors/sows page==1 per_page==10
+```
+
+### Example Response
+
+Returns a dictionary with `data` property that contains an array of up to `per_page` sow mirrors limit and some [pagination](/api/getting-started.html#pagination) metadata.
+Returns [an error](/api/getting-started.html#errors) if something goes wrong.
+
+```
+200 OK
+```
+
+```json
+{
+  "data": [
+    {
+      "cloud_id": "wos_nbocYxWfQeXdI27iD6JeRLl1yKPrYNKF",
+      "vendor_id": "70b096b7-047b-41ab-b36c-261f608ea701",
+      "gestal_id": 7847698,
+      "pin_tag": "1234",
+      "rfid1": 4564678,
+      "rfid2": 1234567,
+      "state": "farrowing",
+      "state_updated_at": "2001-01-01T01:01:01.000Z",
+      "last_location": "far101",
+      "created_at": "2001-01-01T01:01:01.000Z",
+      "updated_at": "2001-01-01T01:01:01.000Z"
+    }
+  ],
+  "meta": {
+    "total": 1,
+    "pages": 1,
+    "per_page": 10,
+    "current_page": 1,
+    "next_page": false,
+    "previous_page": false,
+    "first_page": true,
+    "last_page": true,
+    "out_of_range": false
+  }
+}
+```
