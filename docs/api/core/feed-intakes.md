@@ -7,7 +7,7 @@ Feed Intakes resources represent how much each daily feed a [sow](/api/core/sows
 | Attribute | Type | Description |
 | :-- | -- | :-- |
 | `cloud_id` | _string_ | Unique identifier for the object. |
-| `gestal_id` | _number_ | The Gestal system unique ID. |
+| `sow_id` | _number_ | The Sow unique ID. |
 | `fed_at` | _date_ | Date at which a [sow](/api/core/sows.html#the-sow-object) was fed. |
 | `quantity` | _number_ | The quantity in _grams_ ate by [sow](/api/core/sows.html#the-sow-object) this day. |
 | `target_quantity` | _number_ | The target quantity in _grams_ to be eaten by [sow](/api/core/sows.html#the-sow-object). |
